@@ -1,0 +1,29 @@
+.dashboardContainer {
+  padding: 20px;
+}
+
+.createLink {
+  margin-left: 20px;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.taskCheckbox {
+  margin-right: 10px;
+}
+
+.taskTitle {
+  text-decoration: none;
+}
+
+.taskTitle.completed {
+  text-decoration: line-through;
+}
+
+.deleteButton {
+  margin-left: 10px;
+}
