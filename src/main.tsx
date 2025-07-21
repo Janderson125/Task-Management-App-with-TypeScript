@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import { Auth0Provider } from '@auth0/auth0-react'
 
+// Your Auth0 domain and client ID
 const domain = 'dev-hgxjdl0zva0jlarz.us.auth0.com'
 const clientId = 'E3cVgznKihK4OgJlXL6I4TZreeMDjx7a'
 
