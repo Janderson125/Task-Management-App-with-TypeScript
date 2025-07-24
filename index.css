@@ -1,0 +1,38 @@
+/* NavBar styles */
+
+.navbar {
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin-right: 1rem;
+  color: #61dafb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.user-greeting {
+  margin-right: 1rem;
+}
+
+.nav-button {
+  background-color: #61dafb;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #21a1f1;
+}
