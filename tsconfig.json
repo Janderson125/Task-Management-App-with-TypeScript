@@ -17,9 +17,9 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "*": ["Typescript 2/*"]
+      "*": ["src/*"]
     }
   },
-  "include": ["Typescript 2/**/*"],
+  "include": ["."],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,0 +1,36 @@
+.taskdetails-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.taskdetails-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.taskdetails-description {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.taskdetails-dueDate,
+.taskdetails-status {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.taskdetails-message {
+  text-align: center;
+  margin: 3rem auto;
+  font-size: 1.2rem;
+  color: #b00;
+  font-weight: bold;
+}
