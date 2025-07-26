@@ -1,35 +1,36 @@
-.navbar {
+nav.navbar {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3f51b5;
-  padding: 0.5rem 1rem;
-  color: white;
 }
 
-.navbar-title {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.navbar-links a,
-.navbar-btn,
-.navbar-user {
-  margin-left: 1rem;
+nav.navbar a,
+nav.navbar button {
   color: white;
   text-decoration: none;
-  font-weight: 500;
-}
-
-.navbar-btn {
-  background-color: transparent;
-  border: 1px solid white;
-  padding: 0.3rem 0.7rem;
+  margin-left: 1rem;
+  background: none;
+  border: none;
   cursor: pointer;
-  border-radius: 4px;
+  font-size: 1rem;
 }
 
-.navbar-btn:hover {
-  background-color: white;
-  color: #3f51b5;
+nav.navbar button:hover,
+nav.navbar a:hover {
+  text-decoration: underline;
+}
+
+.add-task-btn {
+  background-color: #0066ff;
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  color: white;
+  text-decoration: none;
+}
+
+.add-task-btn:hover {
+  background-color: #0051cc;
 }

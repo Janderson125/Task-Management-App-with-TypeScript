@@ -1,34 +1,26 @@
-// src/context/TaskContext.tsx
-import React, { createContext, useContext, useState, ReactNode } from "react";
-import { Task } from "../types";
+// typescript-2/context/TaskContext.tsx
+import React, { createContext, useState, ReactNode } from "react";
 
 interface TaskContextType {
-  tasks: Task[];
-  addTask: (task: Task) => void;
-  updateTask: (task: Task) => void;
-  deleteTask: (id: string) => void;
+  tasks: string[];
+  addTask: (task: string) => void;
 }
 
-const TaskContext = createContext<TaskContextType | undefined>(undefined);
+export const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
-export const useTasks = (): TaskContextType => {
-  const context = useContext(TaskContext);
-  if (!context) throw new Error("useTasks must be used within a TaskProvider");
-  return context;
-};
+interface TaskProviderProps {
+  children: ReactNode;
+}
 
-export const TaskProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [tasks, setTasks] = useState<Task[]>([]);
+export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
+  const [tasks, setTasks] = useState<string[]>([]);
 
-  const addTask = (task: Task) => setTasks((prev) => [...prev, task]);
-
-  const updateTask = (updatedTask: Task) =>
-    setTasks((prev) => prev.map((t) => (t.id === updatedTask.id ? updatedTask : t)));
-
-  const deleteTask = (id: string) => setTasks((prev) => prev.filter((t) => t.id !== id));
+  const addTask = (task: string) => {
+    setTasks((prev) => [...prev, task]);
+  };
 
   return (
-    <TaskContext.Provider value={{ tasks, addTask, updateTask, deleteTask }}>
+    <TaskContext.Provider value={{ tasks, addTask }}>
       {children}
     </TaskContext.Provider>
   );

@@ -1,0 +1,37 @@
+/* src/App.css */
+
+nav {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #000;
+}
+
+nav button {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.container {
+  padding: 20px;
+}
+
+.task-input {
+  padding: 8px;
+  width: 300px;
+}
+
+.add-task-btn {
+  margin-left: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.back-link {
+  display: block;
+  margin-top: 20px;
+}

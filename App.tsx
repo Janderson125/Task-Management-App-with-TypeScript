@@ -1,23 +1,29 @@
-// src/App.tsx
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import TaskDashboard from "./pages/TaskDashboard";
-import TaskDetails from "./pages/TaskDetails";
-import TaskForm from "./pages/TaskForm";
-import LoginPage from "./pages/LoginPage";
+import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/TaskDashboard";
+import TaskCreate from "./pages/TaskForm";
+import AuthCallback from "./pages/AuthCallback";
 
-const App: React.FC = () => (
-  <Router>
-    <NavBar />
-    <Routes>
-      <Route path="/" element={<TaskDashboard />} />
-      <Route path="/task/:id" element={<TaskDetails />} />
-      <Route path="/create" element={<TaskForm />} />
-      <Route path="/edit/:id" element={<TaskForm />} />
-      <Route path="/login" element={<LoginPage />} />
-    </Routes>
-  </Router>
-);
+const App: React.FC = () => {
+  const [tasks, setTasks] = useState<string[]>([]);
+
+  const addTask = (task: string) => {
+    console.log("Adding task:", task); // Debug log
+    setTasks((prev) => [...prev, task]);
+  };
+
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Dashboard tasks={tasks} />} />
+        <Route path="/tasks/new" element={<TaskCreate onAddTask={addTask} />} />
+        <Route path="/callback" element={<AuthCallback />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </>
+  );
+};
 
 export default App;

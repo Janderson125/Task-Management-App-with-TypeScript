@@ -1,18 +1,16 @@
-// src/pages/LoginPage.tsx
-import React, { useEffect } from "react";
+// typescript-2/pages/LoginPage.tsx
+import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = () => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
-  const navigate = useNavigate();
+  const { loginWithRedirect } = useAuth0();
 
-  useEffect(() => {
-    if (isAuthenticated) navigate("/");
-    else loginWithRedirect();
-  }, [isAuthenticated, loginWithRedirect, navigate]);
-
-  return <div>Redirecting to login...</div>;
+  return (
+    <div className="container">
+      <h2>Please Sign In</h2>
+      <button onClick={() => loginWithRedirect()}>Sign In</button>
+    </div>
+  );
 };
 
 export default LoginPage;

@@ -1,35 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import "../styles/NavBar.css";
+import "../styles/navbar.css";
 
-const NavBar: React.FC = () => {
-  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+const Navbar: React.FC = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   return (
     <nav className="navbar">
-      <Link to="/" className="navbar-brand">
-        Task Dashboard
-      </Link>
-      <div className="navbar-links">
-        {isAuthenticated ? (
-          <>
-            <span className="navbar-user">Hello, {user?.name}</span>
-            <button
-              className="navbar-button"
-              onClick={() => logout()}
-            >
-              Log Out
-            </button>
-          </>
-        ) : (
-          <button className="navbar-button" onClick={() => loginWithRedirect()}>
-            Log In
+      <Link to="/">Task Dashboard</Link>
+      {isAuthenticated ? (
+        <>
+          <button
+            onClick={() =>
+              logout({ logoutParams: { returnTo: window.location.origin } })
+            }
+          >
+            Sign Out
           </button>
-        )}
-      </div>
+          <Link to="/tasks/new" className="add-task-btn">
+            + Create New Task
+          </Link>
+        </>
+      ) : (
+        <button
+          onClick={async () => {
+            try {
+              await loginWithRedirect();
+              console.log("Login redirect triggered");
+            } catch (error) {
+              console.error("Login failed:", error);
+            }
+          }}
+        >
+          Sign In
+        </button>
+      )}
     </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;
